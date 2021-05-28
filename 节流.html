@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 300px;
+            height: 300px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+        var oBox = document.getElementById('box')
+
+        function center(e) {
+            console.log(1)
+            console.log(e)
+            console.log(this)
+        }
+        oBox.onmousemove = throttle(center, 300)
+        oBox.onmousemove = ({})
+        //高阶函数
+        function throttle(fn, time) {
+            //设置看门狗 ，初始化一个上一次的时间
+            var lastTime = 0;
+            // return的这个函数才是真正的时间事件函数
+            return function () {
+                //每次执行的时候获取当前时间
+                var nowTime = Data.now();
+                //看门狗
+                if (nowTime - lastTime < time) {
+                    return
+                }
+                //如果放行会把当次的时间变成上次的时间
+                lastTime = nowTime
+                fn.call(this, arguments[0])//改变this指向
+            }
+        }
+    </script>
+</body>
+
+</html>

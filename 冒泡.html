@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var add = [5, 6, 9, 1, 2, 3, 8, 6]
+        for (var i = 0; i < add.length; i++) {
+            for (var j = 0; j < add.length - i; j++) {
+                //判断若是相等交换位置
+                if (add[j] == add[j + 1]) {
+                    var tp = add[j];
+                    add[j] = add[j + 1];
+                    add[j + 1] = tp
+                }
+            }
+        }
+        console.log(add)
+    </script>
+</body>
+
+</html>

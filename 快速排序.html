@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var add = [3, 4, 5, 6, 7, 84, 4354, 43543, 43, 531, 3]
+        function cd(add) {
+            if (add.length <= 1) {
+                return add;
+            }
+            var center = add.pop()
+            var left = []
+            var right = []
+            add.forEach(function (a, b) {
+                if (a >= center) {
+                    right.push(a)
+                } else {
+                    left.push(a)
+                }
+            })
+            console.log(left, center, right);
+            var cd2 = cd(left).center(center, cd(right));
+            return cd2
+        }
+        var cd3 = cd(add)
+        console.log(cd3)
+    </script>
+</body>
+
+</html>
